@@ -34,8 +34,6 @@ router
     feed.insert(mongoConnection, comment, (feed) => {
       res.status(200).json({feeds: feed || []});
     });
-    // console.log(comment);
-    // res.status(200).json({feeds: feed.add(comment)});
   });
 
 

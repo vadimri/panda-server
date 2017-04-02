@@ -1,7 +1,7 @@
 'use strict';
 const assert = require('assert');
 
-const pick = (items) => items.map( ({email, message}) => {
+const pickMessage = (items) => items.map( ({email, message}) => {
   return { email, message };
 });
 
@@ -11,7 +11,7 @@ export const fetch = (db, callback) => {
   // Find some documents
   collection.find({}).toArray((err, docs) => {
     assert.equal(err, null);
-    callback(pick(docs));
+    callback(pickMessage(docs));
   });
 };
 
@@ -23,7 +23,7 @@ export const insert = (db, comment,  callback) => {
     assert.equal(result.insertedCount, 1);
     collection.find({}).toArray((err, docs) => {
       assert.equal(err, null);
-      callback(pick(docs));
+      callback(pickMessage(docs));
     });
   });
 };
